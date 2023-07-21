@@ -20,7 +20,7 @@ def extract_address(path_to_cv: str) -> str:
     # search for substring in txt file that matches the pattern for a regular expression.
 
     text = docx2txt.process(path_to_cv)
-    email_pattern = r"[a-zA-Z0-9.+\-_]+@[a-zA-Z0-9-+]+\.[a-zA-Z]{2,}"
+    email_pattern = r"[a-zA-Z0-9.+\-_]+@[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,}"
 
     match = re.search(email_pattern, text)
 
