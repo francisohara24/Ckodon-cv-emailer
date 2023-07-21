@@ -74,4 +74,5 @@ The Ckodon Foundation Team.
         print("SENT")
         return True
     except:
+        print("Error at:", path_to_cv)
         return False
