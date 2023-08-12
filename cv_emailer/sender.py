@@ -1,5 +1,6 @@
 from email.message import EmailMessage
 from smtplib import SMTP
+import json
 
 
 def create_client():
@@ -11,10 +12,11 @@ def create_client():
         An SMTP client instance with the Ckodon Foundation's sender credentials.
     """
     # define SMTP server credentials
-    server = "smtp.gmail.com"
-    port = 587
-    username = "ckodontech@gmail.com"
-    password = input("Enter the app password you received from Ckodon:\t")
+    credentials = json.load(open("../data/credentials.json"))
+    server = credentials["server"]
+    port = credentials["port"]
+    username = credentials["username"]
+    password = credentials["password"]
 
     # connect to SMTP server
     smtp = SMTP(server, port)
